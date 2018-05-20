@@ -13,7 +13,7 @@
 |
 */
 
-require __DIR__.'/core/cli/autoload.php';
+require __DIR__.'/core/cli/autoloader.php';
 
 $cli = new Addiesaas\Core\Support\CLI\Scaffolder();
 $status = $cli->run();
