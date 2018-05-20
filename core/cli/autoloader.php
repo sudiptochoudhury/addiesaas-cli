@@ -14,21 +14,21 @@ define('ADDIESAAS_CLI_START', microtime(true));
 |
 */
 $possibleAutoLoaders = array(
-    __DIR__.'/vendor/autoload.php',
-    __DIR__.'/../vendor/autoload.php',
-    __DIR__.'/../../vendor/autoload.php',
-    __DIR__.'/../../../vendor/autoload.php',
-    __DIR__.'/../../../../vendor/autoload.php',
-    __DIR__.'/../../../../../vendor/autoload.php',
-    __DIR__.'/../autoload.php',
-    __DIR__.'/../../autoload.php',
-    __DIR__.'/../../../autoload.php',
-    __DIR__.'/../../../../autoload.php',
-    __DIR__.'/../../../../../autoload.php',
+    __DIR__ . '/vendor/autoload.php',
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../vendor/autoload.php',
+    __DIR__ . '/../../../vendor/autoload.php',
+    __DIR__ . '/../../../../vendor/autoload.php',
+    __DIR__ . '/../../../../../vendor/autoload.php',
+    __DIR__ . '/../autoload.php',
+    __DIR__ . '/../../autoload.php',
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../../../../autoload.php',
+    __DIR__ . '/../../../../../autoload.php',
 );
 
 $autoLoaderPathFound = false;
-foreach($possibleAutoLoaders as $autoLoaderPath) {
+foreach ($possibleAutoLoaders as $autoLoaderPath) {
     $autoLoaderPathFound = file_exists($autoLoaderPath);
     if ($autoLoaderPathFound) {
         break;
@@ -36,9 +36,9 @@ foreach($possibleAutoLoaders as $autoLoaderPath) {
 }
 
 if ($autoLoaderPathFound) {
+    require $autoLoaderPath;
+} else {
     echo "Unable to find autoloader! Terminating";
     exit(1);
-} else {
-    require $autoLoaderPath;
 }
 
