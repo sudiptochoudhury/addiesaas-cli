@@ -25,6 +25,9 @@
             "Tests\\": "tests/"
         }
     },
+    "bin": [
+        "addiesaas-cli"
+    ]
     "extra": {
     },
     "scripts": {
