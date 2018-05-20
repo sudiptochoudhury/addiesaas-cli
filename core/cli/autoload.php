@@ -13,5 +13,27 @@ define('ADDIESAAS_CLI_START', microtime(true));
 | loading of any our classes "manually". Feels great to relax.
 |
 */
+$possibleAutoLoaders = array(
+    __DIR__.'/vendor/autoload.php',
+    __DIR__.'/../vendor/autoload.php',
+    __DIR__.'/../../vendor/autoload.php',
+    __DIR__.'/../../../vendor/autoload.php',
+    __DIR__.'/../../../../vendor/autoload.php',
+    __DIR__.'/../../../../../vendor/autoload.php',
+);
 
-require __DIR__.'/../../vendor/autoload.php';
+$autoLoaderPathFound = false;
+foreach($possibleAutoLoaders as $autoLoaderPath) {
+    $autoLoaderPathFound = file_exists($autoLoaderPath);
+    if ($autoLoaderPathFound) {
+        break;
+    }
+}
+
+if ($autoLoaderPathFound) {
+    echo "Unable to find autoloader! Terminating";
+    exit(1);
+} else {
+    require $autoLoaderPath;
+}
+
