@@ -6,8 +6,9 @@
         "CLI",
         "SaaS"
     ],
+    "version": "1.0.0",
     "license": "MIT",
-    "type": "project",
+    "type": "package",
     "require": {
         "php": ">=5.3.0",
         "splitbrain/php-cli": "*"
